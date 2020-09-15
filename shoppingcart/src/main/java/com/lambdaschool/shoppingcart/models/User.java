@@ -1,6 +1,7 @@
 package com.lambdaschool.shoppingcart.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -26,6 +29,8 @@ public class User
             unique = true)
     private String username;
 
+    private String password;
+
     private String comments;
 
     @OneToMany(mappedBy = "user",
@@ -34,9 +39,22 @@ public class User
             allowSetters = true)
     private List<Cart> carts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonIgnoreProperties(value = "user", allowSetters = true)
+    private Set<UserRoles> roles = new HashSet<>();
+
     public User()
     {
 
+    }
+
+    public User(String username, String password, String comments)
+    {
+        this.username = username;
+        setPassword(password);
+        this.comments = comments;
     }
 
     public long getUserid()
@@ -78,4 +96,17 @@ public class User
     {
         this.carts = carts;
     }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        this.password = passwordEncoder.encode(password);
+    }
+
+
 }
