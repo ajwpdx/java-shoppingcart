@@ -72,7 +72,8 @@ public class UserServiceImpl
     {
         User newUser = new User();
 
-        newUser.setUsername(user.getUsername());
+        newUser.setUsername(user.getUsername().toLowerCase());
+        newUser.setNoEncodePassword(user.getPassword());
         newUser.setComments(user.getComments());
 
         if (user.getCarts()

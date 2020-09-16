@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
     @Override
@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         return super.authenticationManagerBean();
     }
 
+    //tells Spring where the username and passwords reside
     @Resource(name = "securityUserService")
     private UserDetailsService userDetailsService;
 

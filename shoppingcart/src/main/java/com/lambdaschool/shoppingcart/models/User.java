@@ -133,6 +133,7 @@ public class User
 
         for(UserRoles r : this.roles)
         {
+            //when Spring talks about authority. It puts ROLE_ keyword before the name.
             String myRole = "ROLE_" + r.getRole().getName().toUpperCase();
             rtnList.add((new SimpleGrantedAuthority(myRole)));
         }
