@@ -3,6 +3,7 @@ package com.lambdaschool.shoppingcart.handlers;
 import com.lambdaschool.shoppingcart.exceptions.ResourceFoundException;
 import com.lambdaschool.shoppingcart.exceptions.ResourceNotFoundException;
 import com.lambdaschool.shoppingcart.models.ErrorDetail;
+import com.lambdaschool.shoppingcart.services.HelperFunctionsImpl;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class RestExceptionHandler
      * Connects this class with the Helper Functions
      */
     @Autowired
-    private HelperFunctions helper;
+    private HelperFunctionsImpl helper;
 
     /**
      * The constructor for the RestExceptionHandler. Currently we do not do anything special. We just call the parent constructor.

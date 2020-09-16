@@ -22,8 +22,8 @@ public class UserServiceImpl
     @Autowired
     private UserRepository userrepos;
 
-    @Autowired
-    private CartService cartService;
+//    @Autowired
+//    private CartService cartService;
 
     @Override
     public List<User> findAll()

@@ -1,6 +1,6 @@
 package com.lambdaschool.shoppingcart.exceptions;
 
-import com.lambdaschool.shoppingcart.handlers.HelperFunctions;
+import com.lambdaschool.shoppingcart.services.HelperFunctionsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ public class CustomErrorDetails
      * Connects this class with the Helper Functions
      */
     @Autowired
-    private HelperFunctions helper;
+    private HelperFunctionsImpl helper;
 
     /**
      * Custom method to override the error details provided by Spring Boot. We want to use our own format.

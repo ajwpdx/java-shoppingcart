@@ -1,4 +1,4 @@
-package com.lambdaschool.shoppingcart.handlers;
+package com.lambdaschool.shoppingcart.services;
 
 import com.lambdaschool.shoppingcart.exceptions.ResourceNotFoundException;
 import com.lambdaschool.shoppingcart.models.ValidationError;
@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -16,8 +17,8 @@ import java.util.List;
  * Class contains helper functions - functions that are needed throughout the application. The class can be autowired
  * into any class.
  */
-@Component
-public class HelperFunctions
+@Service(value = "helperFunctions")
+public class HelperFunctionsImpl implements HelperFunctions
 {
     /**
      * Searches to see if the exception has any constraint violations to report
