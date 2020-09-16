@@ -24,12 +24,16 @@ public interface UserService
      */
     User findUserById(long id);
 
+    User findByName(String name);
     /**
      * Deletes the user record from the database based off of the provided primary key
      *
      * @param id id The primary key (long) of the user you seek.
      */
     void delete(long id);
+
+    //added
+
 
     /**
      * Given a complete user object, saves that user object in the database.
@@ -39,5 +43,6 @@ public interface UserService
      * @param user the user object to be saved
      * @return the saved user object including any automatically generated fields
      */
+
     User save(User user);
 }
