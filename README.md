@@ -568,8 +568,8 @@ STATUS OK
     * [x] Only users with role Admin can access this endpoint
   * [x] DELETE http://localhost:2019/products/product/1
 
-* [ ] Add a new endpoint
-  * [ ] http://localhost:2019/users/myinfo
-    * [ ] Any authenticated user can access this endpoint and it will return the authenticated users information
+* [x] Add a new endpoint
+  * [x] http://localhost:2019/users/myinfo
+    * [x] Any authenticated user can access this endpoint and it will return the authenticated users information
 
 For MVP, you do not need to add any more endpoints than those listed above!!!

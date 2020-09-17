@@ -23,17 +23,21 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception
     {
+        //disabling cross-site request forgery tokens
         http.csrf().disable();
         http.headers().frameOptions().disable();
         http.logout().disable();
 
+        //how we set up who has access to what
         http.authorizeRequests()
                 .antMatchers("/", "/h2-console/**").permitAll()
-                .antMatchers("users/**").authenticated()
-                .antMatchers("roles/**").hasAnyRole("ADMIN", "EDIT")
+                .antMatchers("/users/**").authenticated()
+                .antMatchers("/products/**").authenticated()
+                .antMatchers("/carts/user").authenticated()
+                .antMatchers("/users/myinfo").authenticated()
                 .and()
                 .exceptionHandling()
-                .accessDeniedHandler( new OAuth2AccessDeniedHandler());
+                .accessDeniedHandler(new OAuth2AccessDeniedHandler());
     }
 }
 
