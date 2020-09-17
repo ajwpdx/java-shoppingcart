@@ -22,8 +22,8 @@ public class UserServiceImpl
     @Autowired
     private UserRepository userrepos;
 
-    @Autowired
-    private CartService cartService;
+//    @Autowired
+//    private CartService cartService;
 
     @Override
     public List<User> findAll()
@@ -46,6 +46,17 @@ public class UserServiceImpl
                 .orElseThrow(() -> new ResourceNotFoundException("User id " + id + " not found!"));
     }
 
+    @Override
+    public User findByName(String name)
+    {
+        User uu = userrepos.findByUsername(name.toLowerCase());
+        if (uu == null)
+        {
+            throw new ResourceNotFoundException("User name " + name + " not found!");
+        }
+        return uu;
+    }
+
     @Transactional
     @Override
     public void delete(long id)
@@ -61,7 +72,8 @@ public class UserServiceImpl
     {
         User newUser = new User();
 
-        newUser.setUsername(user.getUsername());
+        newUser.setUsername(user.getUsername().toLowerCase());
+        newUser.setNoEncodePassword(user.getPassword());
         newUser.setComments(user.getComments());
 
         if (user.getCarts()

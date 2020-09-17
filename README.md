@@ -524,51 +524,52 @@ STATUS OK
 
 ## Instructions
 
-* [ ] Please fork and clone this repository.
-* [ ] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
-* [ ] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use! Note that the initial application has its own data.sql file. For the final project, use the file provided in the root of the repository! Note that all of the users' passwords are "LambdaLlama".
+* [x] Please fork and clone this repository.
+* [x] This repository does have a starter project, so you must start with that application inside of the cloned repository folder. Regularly commit and push your code as appropriate.
+* [x] A data.sql file has been provided with seed data. You can use this class directly or modify it to fit your models. However, the data found in the file is the seed data to use! Note that the initial application has its own data.sql file. For the final project, use the file provided in the root of the repository! Note that all of the users' passwords are "LambdaLlama".
 
 ### MVP
 
-* [ ] Add OAuth2 Security to the application
-  * [ ] Add the necessary dependencies
-  * [ ] Add the models to represent Roles and the join table between Roles and Users
-    * [ ] Two roles will be used - Admin for access to all of the system and User for access to only the authenticated user's information
-  * [ ] In the existing User model add fields for password and roles including associated getters, setters, and other needed methods
-  * [ ] Add findByName to the User Service with associated repository entry
-  * [ ] Add the necessary helper functions
-  * [ ] Add the SecurityUserService service
-  * [ ] Add and update the necessary configuration files
+* [x] Add OAuth2 Security to the application
+  * [x] Add the necessary dependencies
+  * [x] Add the models to represent Roles and the join table between Roles and Users
+    * [x] Two roles will be used - Admin for access to all of the system and User for access to only the authenticated user's information
+  * [x] In the existing User model add fields for password and roles including associated getters, setters, and other needed methods
+  * [x] Add findByName to the User Service with associated repository entry
+  * [x] Add the necessary helper functions
+  * [x] Add the SecurityUserService service
+  * [x] Add and update the necessary configuration files
 * [ ] The initial endpoints are affected by security as follows
-  * [ ] http://localhost:2019/users/users
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] http://localhost:2019/users/user/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] POST http://localhost:2019/users/user
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] DELETE http://localhost:2019/users/user/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] http://localhost:2019/carts/user
-    * [ ] Drop the path variable and return the information for authenticated user
-  * [ ] http://localhost:2019/carts/cart/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] POST http://localhost:2019/carts/create/product/1
-    * [ ] Drop the user path variable and create a new cart for the authenticated user
+  * [x] http://localhost:2019/users/users
+    * [x] Only users with role Admin can access this endpoint
+  * [x] http://localhost:2019/users/user/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] POST http://localhost:2019/users/user
+    * [x] Only users with role Admin can access this endpoint
+  * [x] DELETE http://localhost:2019/users/user/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] http://localhost:2019/carts/user
+    * [x] Drop the path variable and return the information for authenticated user
+  * [x] http://localhost:2019/carts/cart/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] POST http://localhost:2019/carts/create/product/1
+    * [x] Drop the user path variable and create a new cart for the authenticated user
   * [ ] PUT http://localhost:2019/carts/update/cart/1/product/1
     * [ ] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own. This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
   * [ ] DELETE http://localhost:2019/carts/delete/cart/1/product/1
     * [ ] Any user with role Admin can access this endpoint. Any user with role User can only access carts that they own.  This would similar to the function in our usermodel under OAuth2 for updating a user using the helper.isAuthorizedToMakeChange() method. You can get the current authenticated use from the userAuditor field!
-  * [ ] http://localhost:2019/products/products
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] http://localhost:2019/products/product/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] POST http://localhost:2019/products/product
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] PUT http://localhost:2019/products/product/1
-    * [ ] Only users with role Admin can access this endpoint
-  * [ ] DELETE http://localhost:2019/products/product/1
-* [ ] Add a new endpoint
-  * [ ] http://localhost:2019/users/myinfo
-    * [ ] Any authenticated user can access this endpoint and it will return the authenticated users information
+  * [x] http://localhost:2019/products/products
+    * [x] Only users with role Admin can access this endpoint
+  * [x] http://localhost:2019/products/product/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] POST http://localhost:2019/products/product
+    * [x] Only users with role Admin can access this endpoint
+  * [x] PUT http://localhost:2019/products/product/1
+    * [x] Only users with role Admin can access this endpoint
+  * [x] DELETE http://localhost:2019/products/product/1
+
+* [x] Add a new endpoint
+  * [x] http://localhost:2019/users/myinfo
+    * [x] Any authenticated user can access this endpoint and it will return the authenticated users information
 
 For MVP, you do not need to add any more endpoints than those listed above!!!
